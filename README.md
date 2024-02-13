@@ -8,6 +8,14 @@ Everything you need to build a Solid project, powered by [`solid-start`](https:/
 npm i
 ```
 
+## Setting up Environment Variables
+
+```bash
+# Create a .env file in the root of the project and add the following
+DATABLE_URL=db.sqlite
+# You can change the value of DATABLE_URL if you want to use a different name for the database file
+```
+
 ## Initialising Database
 
 ```bash
