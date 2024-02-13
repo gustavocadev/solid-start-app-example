@@ -1,0 +1,37 @@
+{
+  "name": "solid-start-app",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "start": "vinxi start",
+    "db:generate": "drizzle-kit generate:sqlite",
+    "db:migrate": "tsx src/lib/drizzle/migrate"
+  },
+  "dependencies": {
+    "@ark-ui/solid": "^2.0.1",
+    "@park-ui/tailwind-plugin": "^0.19.1",
+    "@solidjs/router": "^0.12.0",
+    "@solidjs/start": "^0.5.5",
+    "autoprefixer": "^10.4.14",
+    "better-sqlite3": "^9.4.1",
+    "drizzle-orm": "^0.29.3",
+    "lucide-solid": "^0.330.0",
+    "nanoid": "^5.0.5",
+    "postcss": "^8.4.26",
+    "solid-js": "^1.8.14",
+    "tailwind-variants": "^0.2.0",
+    "tailwindcss": "^3.3.3",
+    "vinxi": "^0.2.1",
+    "vite-tsconfig-paths": "^4.3.1"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.9",
+    "dotenv": "^16.4.3",
+    "drizzle-kit": "^0.20.14",
+    "tsx": "^4.7.1"
+  }
+}
