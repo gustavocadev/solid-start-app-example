@@ -7,21 +7,21 @@
     "start": "vinxi start",
     "version": "vinxi version",
     "db:generate": "drizzle-kit generate:sqlite",
-    "db:migrate": "tsx src/lib/drizzle/migrate"
+    "db:migrate": "bun run src/lib/drizzle/migrate"
   },
   "dependencies": {
-    "@ark-ui/solid": "^2.2.0",
+    "@ark-ui/solid": "^3.0.0",
     "@park-ui/tailwind-plugin": "^0.20.1",
-    "@solidjs/meta": "^0.29.3",
-    "@solidjs/router": "^0.13.1",
-    "@solidjs/start": "1.0.0-rc.0",
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.13.3",
+    "@solidjs/start": "1.0.0",
     "autoprefixer": "^10.4.19",
-    "better-sqlite3": "^9.4.3",
-    "drizzle-orm": "^0.30.4",
-    "lucide-solid": "^0.362.0",
+    "better-sqlite3": "^10.0.0",
+    "drizzle-orm": "^0.30.10",
+    "lucide-solid": "^0.379.0",
     "nanoid": "^5.0.6",
     "postcss": "^8.4.38",
-    "solid-js": "^1.8.16",
+    "solid-js": "^1.8.17",
     "tailwind-variants": "^0.2.1",
     "tailwindcss": "^3.4.1",
     "vinxi": "^0.3.10"
@@ -32,7 +32,6 @@
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.9",
     "dotenv": "^16.4.5",
-    "drizzle-kit": "^0.20.14",
-    "tsx": "^4.7.1"
+    "drizzle-kit": "^0.21.4"
   }
 }
