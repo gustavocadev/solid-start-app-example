@@ -81,15 +81,15 @@ export default function Home(props: RouteSectionProps) {
             <Card.Root>
               <Card.Header>
                 <Card.Title>{note.title}</Card.Title>
-                <Card.Description>
-                  <form action={deleteNoteAction} method="post">
-                    <input type="hidden" name="id" value={note.id} />
-                    <Button type="submit" variant="ghost">
-                      <Trash2Icon class="text-red-500 cursor-pointer" />
-                    </Button>
-                  </form>
-                </Card.Description>
               </Card.Header>
+              <Card.Body>
+                <form action={deleteNoteAction} method="post">
+                  <input type="hidden" name="id" value={note.id} />
+                  <Button type="submit" variant="ghost">
+                    <Trash2Icon class="text-red-500 cursor-pointer" />
+                  </Button>
+                </form>
+              </Card.Body>
             </Card.Root>
           )}
         </For>
