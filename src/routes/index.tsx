@@ -1,6 +1,6 @@
 import {
-  RouteDefinition,
-  RouteSectionProps,
+  type RouteDefinition,
+  type RouteSectionProps,
   action,
   cache,
   createAsyncStore,
@@ -11,9 +11,9 @@ import { Button } from '~/components/ui/button';
 import { FormLabel } from '~/components/ui/form-label';
 import { Input } from '~/components/ui/input';
 import { db } from '~/lib/drizzle/db';
-import { SelectNote, note } from '~/lib/drizzle/schema';
+import { type SelectNote, note } from '~/lib/drizzle/schema';
 import * as Card from '~/components/ui/card';
-import { Trash2Icon } from 'lucide-solid';
+import { FaSolidTrash } from 'solid-icons/fa';
 import { eq } from 'drizzle-orm';
 
 // get all notes from the database
@@ -86,7 +86,7 @@ export default function Home(props: RouteSectionProps) {
                 <form action={deleteNoteAction} method="post">
                   <input type="hidden" name="id" value={note.id} />
                   <Button type="submit" variant="ghost">
-                    <Trash2Icon class="text-red-500 cursor-pointer" />
+                    <FaSolidTrash class="text-red-500 cursor-pointer" />
                   </Button>
                 </form>
               </Card.Body>
