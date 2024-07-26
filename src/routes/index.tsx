@@ -3,7 +3,7 @@ import {
   type RouteSectionProps,
   action,
   cache,
-  createAsyncStore,
+  createAsync,
   json,
 } from '@solidjs/router';
 import { For } from 'solid-js';
@@ -28,6 +28,12 @@ const getNotes = cache(async () => {
 // create a new note
 const createNoteAction = action(async (formData: FormData) => {
   'use server';
+
+  if (!formData.get('note')) {
+    return json({
+      msg: 'Note is required',
+    });
+  }
 
   /// Insert a new note into the database
   await db.insert(note).values({
@@ -58,10 +64,11 @@ export const route = {
 } satisfies RouteDefinition;
 
 export default function Home(props: RouteSectionProps) {
-  const notes = createAsyncStore<SelectNote[]>(() => getNotes(), {
+  const notes = createAsync<SelectNote[]>(() => getNotes(), {
     initialValue: [],
-    deferStream: true,
   });
+
+  let inputRef!: HTMLInputElement;
 
   return (
     <main class="text-center mx-auto text-gray-700 p-4">
@@ -73,6 +80,13 @@ export default function Home(props: RouteSectionProps) {
         action={createNoteAction}
         method="post"
         class="flex flex-col gap-2 max-w-3xl mx-auto items-start"
+        onSubmit={(e) => {
+          if (!inputRef.value.trim()) e.preventDefault();
+
+          setTimeout(() => {
+            inputRef.value = '';
+          });
+        }}
       >
         <TextField class="space-y-1 w-full text-left">
           <TextFieldLabel
@@ -85,6 +99,7 @@ export default function Home(props: RouteSectionProps) {
             placeholder="Type something here"
             name="note"
             type="text"
+            ref={inputRef}
           />
         </TextField>
         <Button type="submit">Add Note</Button>
