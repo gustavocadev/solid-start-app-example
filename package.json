@@ -10,15 +10,12 @@
     "db:migrate": "bun run src/lib/drizzle/migrate"
   },
   "dependencies": {
-    "@ark-ui/solid": "^3.5.0",
-    "@park-ui/tailwind-plugin": "^0.20.1",
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.13.6",
     "@solidjs/start": "1.0.6",
     "autoprefixer": "^10.4.19",
     "better-sqlite3": "^11.1.2",
     "drizzle-orm": "^0.32.1",
-    "lucide-solid": "^0.379.0",
     "nanoid": "^5.0.7",
     "postcss": "^8.4.39",
     "solid-js": "^1.8.18",
@@ -32,6 +29,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
     "@types/better-sqlite3": "^7.6.11",
-    "drizzle-kit": "^0.23.0"
+    "drizzle-kit": "^0.23.0",
+    "solid-icons": "^1.1.0"
   }
 }
