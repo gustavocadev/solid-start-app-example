@@ -8,11 +8,14 @@ import {
 } from '@solidjs/router';
 import { For } from 'solid-js';
 import { Button } from '~/components/ui/button';
-import { FormLabel } from '~/components/ui/form-label';
-import { Input } from '~/components/ui/input';
+import {
+  TextField,
+  TextFieldInput,
+  TextFieldLabel,
+} from '~/components/ui/text-field';
 import { db } from '~/lib/drizzle/db';
 import { type SelectNote, note } from '~/lib/drizzle/schema';
-import * as Card from '~/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
 import { FaSolidTrash } from 'solid-icons/fa';
 import { eq } from 'drizzle-orm';
 
@@ -71,26 +74,30 @@ export default function Home(props: RouteSectionProps) {
         method="post"
         class="flex flex-col gap-2 max-w-3xl mx-auto items-start"
       >
-        <FormLabel for="input">Name</FormLabel>
-        <Input placeholder="Type something here" name="note" />
+        <TextFieldLabel for="input">Name</TextFieldLabel>
+        <TextFieldInput
+          placeholder="Type something here"
+          name="note"
+          type="text"
+        />
         <Button type="submit">Add Note</Button>
       </form>
       <div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto pt-12">
         <For each={notes()}>
           {(note) => (
-            <Card.Root>
-              <Card.Header>
-                <Card.Title>{note.title}</Card.Title>
-              </Card.Header>
-              <Card.Body>
+            <Card>
+              <CardHeader>
+                <CardTitle>{note.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
                 <form action={deleteNoteAction} method="post">
                   <input type="hidden" name="id" value={note.id} />
                   <Button type="submit" variant="ghost">
                     <FaSolidTrash class="text-red-500 cursor-pointer" />
                   </Button>
                 </form>
-              </Card.Body>
-            </Card.Root>
+              </CardContent>
+            </Card>
           )}
         </For>
       </div>
