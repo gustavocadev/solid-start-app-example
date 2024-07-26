@@ -74,8 +74,13 @@ export default function Home(props: RouteSectionProps) {
         method="post"
         class="flex flex-col gap-2 max-w-3xl mx-auto items-start"
       >
-        <TextField>
-          <TextFieldLabel for="input">Name</TextFieldLabel>
+        <TextField class="space-y-1 w-full text-left">
+          <TextFieldLabel
+            for="input"
+            class="text-left justify-start items-start"
+          >
+            Name
+          </TextFieldLabel>
           <TextFieldInput
             placeholder="Type something here"
             name="note"
